@@ -56,8 +56,14 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
       setPosts(mergedPosts);
     };
     fetchData();
-  }, [slug]); // Ensure dependency array includes 'slug'
+  }, [slug]);// Ensure dependency array includes 'slug'
+interface Post {
+  id: number;
+  // other properties of a post
+}
 
+// Assuming posts is an array of Post objects
+const posts: Post[] = /* Populate posts array with data */;
   return (
     <>
       <Header />
