@@ -25,6 +25,7 @@ interface Post {
   content: {
     rendered: string;
   };
+  slug: string;
   media: Media | null; // Assuming you're adding media property
 }
 
