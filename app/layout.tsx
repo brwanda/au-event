@@ -2,7 +2,7 @@
 
 
 
-import React, { ReactNode } from 'react';
+import React, { Suspense, ReactNode } from 'react';
 import "./globals.css";
 import { ProgressLoader } from 'nextjs-progressloader';
 
@@ -19,7 +19,8 @@ export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang="en">
       <body className="kalisa">
-         <ProgressLoader />
+        <Suspense><ProgressLoader /></Suspense>
+       
         {props.children}
         {props.parallel}
       </body>
