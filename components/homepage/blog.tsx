@@ -12,6 +12,18 @@ export default function Component() {
   const plugin = React.useRef(
     Autoplay({ delay: 1500, stopOnInteraction: true })
   );
+    interface Media {
+    id: number;
+    source_url: string; // Ensure this property exists
+  }
+interface Post {
+  id: number;
+  title: { rendered: string };
+  featured_media: number;
+  content: { rendered: string };
+  media: Media | string | null; // Allow both Media and string
+}
+
 
   const [posts, setPosts] = React.useState([]);
 
@@ -38,28 +50,28 @@ export default function Component() {
   };
 
   // Function to remove HTML tags and extract first 20 words
-  const extractContent = (html) => {
+  const extractContent =  (html: string) => {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     const text = doc.body.textContent || "";
     return text.trim().split(/\s+/).slice(0, 20).join(" ");
   };
 
   // Fetch WordPress posts and media using useEffect
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
-      // Merge media data with posts
-      const mergedPosts = postsData.map(post => {
-        const media = mediaData.find(mediaItem => mediaItem.id === post.featured_media);
-        return {
-          ...post,
-          media
-        };
-      });
-      setPosts(mergedPosts);
+ const fetchData = async () => {
+  const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
+  const mergedPosts = postsData.map((post) => {
+    const media = mediaData.find((mediaItem: Media) => mediaItem.id === post.featured_media);
+    return {
+      ...post,
+      media: media || null,
     };
-    fetchData();
-  }, []);
+  });
+  setPosts(mergedPosts);
+};
+
+useEffect(() => {
+  fetchData();
+}, []);
 
   return (
     <div className="bg-white py-12">
