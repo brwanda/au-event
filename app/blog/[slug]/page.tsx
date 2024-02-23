@@ -78,7 +78,7 @@ useEffect(() => {
                   <div className="w-full flex">
                     {post.media && (
                       <Image
-                        src={post.media.source_url}
+                        src={post.media ? post.media.source_url : ''}
                         alt="Event Stadium"
                         layout="responsive" // Use next/image for optimization
                         width={800} // Adjust width and height as needed
