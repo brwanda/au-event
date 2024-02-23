@@ -32,9 +32,9 @@ export default function Home() {
     <div className="grow">
       <div className="hidden sm:flex items-center justify-center gap-2 md:gap-8">
         <Link className="text-white linkson text-bold" href="./">HOME</Link>
-        <Link className="text-white linkson" href="/About-us">ABOUT US</Link>
-        <Link className="text-white linkson" href="/Gallery">GALLERY</Link>
-        <Link className="text-white linkson" href="/Overview">OVERVIEW</Link>
+        <Link className="text-white linkson" href="/about-us">ABOUT US</Link>
+        <Link className="text-white linkson" href="/gallery">GALLERY</Link>
+        <Link className="text-white linkson" href="/overview">OVERVIEW</Link>
 
       </div>
     </div>
