@@ -13,6 +13,10 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
     id: number;
     source_url: string; // Ensure this property exists
   }
+    interface post {
+    id: number;
+  }
+
 
   // Function to fetch media
   const fetchMedia = async () => {
