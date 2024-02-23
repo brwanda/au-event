@@ -61,7 +61,8 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
   return (
     <>
       <Header />
-      {posts.map(post => (
+{posts.length > 0 && (
+  posts.map(post => (
         <article key={post.id}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
@@ -95,7 +96,8 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
           </div>
         </section>
         </article>
-      ))}
+     ))
+)}
       <Footer />
     </>
   );
