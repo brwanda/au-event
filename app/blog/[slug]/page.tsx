@@ -63,7 +63,7 @@ interface Post {
 }
 
 // Assuming posts is an array of Post objects
-const posts: Post[] = ;
+//const posts: Post[] = ;
   return (
     <>
       <Header />
