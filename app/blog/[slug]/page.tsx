@@ -30,11 +30,11 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
     }
   };
 
-  const extractContent = (html) => {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    const text = doc.body.textContent || "";
-    return text.trim();
-  };
+ const extractContent = (html: string) => {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  const text = doc.body.textContent || "";
+  return text.trim();
+};
   
   // Fetch WordPress posts and media using useEffect
   React.useEffect(() => {
