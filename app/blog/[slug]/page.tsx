@@ -13,6 +13,13 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
     id: number;
     source_url: string; // Ensure this property exists
   }
+interface Post {
+  id: number;
+  title: { rendered: string };
+  featured_media: number;
+  content: { rendered: string };
+  media: Media | string | null; // Allow both Media and string
+}
 
   // Function to fetch media
   const fetchMedia = async () => {
@@ -46,13 +53,13 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
   useEffect(() => {
     const fetchData = async () => {
       const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
-      const mergedPosts = postsData.map((post: Post) => {
-        const media = mediaData.find((mediaItem: Media) => mediaItem.id === post.featured_media);
-        return {
-          ...post,
-          media: media || null, // Handle cases where media might be missing
-        };
-      });
+    setPosts(mergedPosts.map((post) => {
+    const media = mediaData.find((mediaItem: Media) => mediaItem.id === post.featured_media);
+    return {
+      ...post,
+      media: media || null, // Handle cases where media might be missing
+    };
+  }));
       setPosts(mergedPosts);
     };
     fetchData();
@@ -101,10 +108,3 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
 export default ImagePage;
 
 // Define an interface for a post object
-interface Post {
-  id: number;
-  title: { rendered: string };
-  featured_media: number;
-  content: { rendered: string };
-  media: Media | string | null; // Allow both Media and string
-}
