@@ -15,17 +15,17 @@ export const metadata: Metadata = {
 
 function HomePage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-    <div>
+   
+    <>
 
       <Header />
       <About />
       <Mission />
       <Vision />
       <Footer />
-       </Suspense>
     
-    </div>
+    
+    </>
   )
 }
 
