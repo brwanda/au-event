@@ -40,7 +40,7 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
   React.useEffect(() => {
     const fetchData = async () => {
    const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
-    const mergedPosts = postsData.map((post: YourPostType) => {
+    const mergedPosts = postsData.map((post: string) => {
      const media = mediaData.find(mediaItem => mediaItem.id === post.featured_media);
      return {
     ...post,
