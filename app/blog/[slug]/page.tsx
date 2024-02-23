@@ -39,9 +39,10 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
   // Fetch WordPress posts and media using useEffect
   React.useEffect(() => {
     const fetchData = async () => {
-const mergedPosts = postsData.map((post: YourPostType) => {
-  const media = mediaData.find(mediaItem => mediaItem.id === post.featured_media);
-  return {
+   const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
+    const mergedPosts = postsData.map((post: YourPostType) => {
+     const media = mediaData.find(mediaItem => mediaItem.id === post.featured_media);
+     return {
     ...post,
     media: media || null // Assuming mediaData may not always have a corresponding media item
   };
