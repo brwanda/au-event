@@ -4,7 +4,7 @@ import Vision from "@/components/about-us/vision";
 import About from "@/components/about-us/about";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
-
+import { Suspense } from 'react';
 
 
 
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 
 function HomePage() {
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div>
 
       <Header />
@@ -22,6 +23,7 @@ function HomePage() {
       <Mission />
       <Vision />
       <Footer />
+       </Suspense>
     
     </div>
   )
