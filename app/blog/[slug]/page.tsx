@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import axios from 'axios';
-import Image from 'next/image'; // Import next/image
+import Image from 'next/image';
 
 const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } }) => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   // Improved media interface with error handling
   interface Media {
@@ -17,7 +17,7 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
   // Function to fetch media
   const fetchMedia = async () => {
     try {
-      const response = await axios.get('https://blog.awm-global.org/wp-json/wp/v2/media');
+      const response = await axios.get<Media[]>('https://blog.awm-global.org/wp-json/wp/v2/media');
       return response.data;
     } catch (error) {
       console.error('Error fetching media:', error);
@@ -28,7 +28,7 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
   // Function to fetch posts
   const fetchPosts = async () => {
     try {
-      const response = await axios.get(`https://blog.awm-global.org/wp-json/wp/v2/posts?slug=${slug}`);
+      const response = await axios.get<Post[]>(`https://blog.awm-global.org/wp-json/wp/v2/posts?slug=${slug}`);
       return response.data;
     } catch (error) {
       console.error('Error fetching WordPress posts:', error);
@@ -46,7 +46,7 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
   useEffect(() => {
     const fetchData = async () => {
       const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
-      const mergedPosts = postsData.map((post: any) => {
+      const mergedPosts = postsData.map((post: Post) => {
         const media = mediaData.find((mediaItem: Media) => mediaItem.id === post.featured_media);
         return {
           ...post,
@@ -56,14 +56,8 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
       setPosts(mergedPosts);
     };
     fetchData();
-  }, [slug]);// Ensure dependency array includes 'slug'
-interface Post {
-  id: number;
-  // other properties of a post
-}
+  }, [slug]); // Ensure dependency array includes 'slug'
 
-// Assuming posts is an array of Post objects
-//const posts: Post[] = ;
   return (
     <>
       <Header />
@@ -71,8 +65,6 @@ interface Post {
         posts.map((post) => (
           <article key={post.id}>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              {/* Other content from JSON data */}
-
               <section className="flex flex-col items-center justify-center py-12 px-4" key={post.id}>
                 <div className="flex flex-col w-full max-w-6xl justify-between space-y-8 md:space-y-0 md:space-x-8">
                   <div className="w-full flex">
@@ -107,3 +99,12 @@ interface Post {
 };
 
 export default ImagePage;
+
+// Define an interface for a post object
+interface Post {
+  id: number;
+  title: { rendered: string };
+  featured_media: number;
+  content: { rendered: string };
+  // other properties of a post
+}
