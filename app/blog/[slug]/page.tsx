@@ -1,28 +1,18 @@
 "use client";
-import Header from '@/components/header'
-import Footer from '@/components/footer'
-import * as React from "react";
+
+import { useState, useEffect } from "react";
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 import axios from 'axios';
 
 const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } }) => {
-  
-  const [posts, setPosts] = React.useState([]);
-  interface Post {
-  id: number;
-  featured_media: number;
-    slug: string;
-  // other properties of a post
-}
+  const [posts, setPosts] = useState([]);
 
-interface Media {
-  id: number;
-  // other properties of a media item
-}
-  interface MediaItem {
-  id: number; // Assuming `id` is of type number
-  // Other properties of a media item
-}
-
+  // Improved media interface with error handling
+  interface Media {
+    id: number;
+    source_url: string; // Ensure this property exists
+  }
 
   // Function to fetch media
   const fetchMedia = async () => {
@@ -46,27 +36,27 @@ interface Media {
     }
   };
 
- const extractContent = (html: string) => {
-  const doc = new DOMParser().parseFromString(html, 'text/html');
-  const text = doc.body.textContent || "";
-  return text.trim();
-};
-  
-  // Fetch WordPress posts and media using useEffect
-  React.useEffect(() => {
-    const fetchData = async () => {
-   const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
-   const mergedPosts = postsData.map((post: Post) => {
-  const media = mediaData.find(mediaItem => mediaItem.id === post.featured_media);
-  return {
-    ...post,
-    media: media || null // Assuming mediaData may not always have a corresponding media item
+  // Improved content extraction using regular expressions (optional)
+  const extractContent = (html: string) => {
+    const cleanedHtml = html.replace(/<[^>]+>/g, ''); // Remove HTML tags
+    return cleanedHtml.trim();
   };
-});
+
+  // Fetch WordPress posts and media using useEffect
+  useEffect(() => {
+    const fetchData = async () => {
+      const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
+      const mergedPosts = postsData.map((post: any) => {
+        const media = mediaData.find((mediaItem: Media) => mediaItem.id === post.featured_media);
+        return {
+          ...post,
+          media: media || null,
+        };
+      });
       setPosts(mergedPosts);
     };
     fetchData();
-  }, [slug]); // Make sure to include 'slug' in the dependency array to fetch new data when slug changes
+  }, [slug]);// Make sure to include 'slug' in the dependency array to fetch new data when slug changes
 
   return (
     <>
