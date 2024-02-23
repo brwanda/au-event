@@ -1,7 +1,7 @@
 "use client";
 // pages/index.js
 import { Button } from "@/components/ui/button";
-import * as React from "react";
+import { useState, useEffect } from "react";
 import Link from 'next/link';
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
