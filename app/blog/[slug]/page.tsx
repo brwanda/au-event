@@ -50,20 +50,21 @@ interface Post {
   };
 
   // Fetch WordPress posts and media using useEffect
-  useEffect(() => {
-    const fetchData = async () => {
-      const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
-    setPosts(mergedPosts.map((post) => {
+const fetchData = async () => {
+  const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
+  const mergedPosts = postsData.map((post) => {
     const media = mediaData.find((mediaItem: Media) => mediaItem.id === post.featured_media);
     return {
       ...post,
-      media: media || null, // Handle cases where media might be missing
+      media: media || null,
     };
-  }));
-      setPosts(mergedPosts);
-    };
-    fetchData();
-  }, [slug]); // Ensure dependency array includes 'slug'
+  });
+  setPosts(mergedPosts);
+};
+
+useEffect(() => {
+  fetchData();
+}, []); // Ensure dependency array includes 'slug'
 
   return (
     <>
