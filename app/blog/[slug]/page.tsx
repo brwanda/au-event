@@ -7,6 +7,18 @@ import axios from 'axios';
 const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } }) => {
   
   const [posts, setPosts] = React.useState([]);
+  interface Post {
+  id: number;
+  featured_media: number;
+    slug: string;
+  // other properties of a post
+}
+
+interface Media {
+  id: number;
+  // other properties of a media item
+}
+
 
   // Function to fetch media
   const fetchMedia = async () => {
@@ -40,9 +52,9 @@ const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } })
   React.useEffect(() => {
     const fetchData = async () => {
    const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
-    const mergedPosts = postsData.map((post: string) => {
-     const media = mediaData.find(mediaItem => mediaItem.id === post.featured_media);
-     return {
+   const mergedPosts = postsData.map((post: Post) => {
+  const media = mediaData.find(mediaItem => mediaItem.id === post.featured_media);
+  return {
     ...post,
     media: media || null // Assuming mediaData may not always have a corresponding media item
   };
