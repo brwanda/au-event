@@ -39,17 +39,17 @@ function footer() {
               </Link>
             </li>
             <li>
-              <Link className="hover:text-blue-500" href="/about-us">
+              <Link className="hover:text-blue-500" href="/About-us">
                 About Us
               </Link>
             </li>
             <li>
-              <Link className="hover:text-blue-500" href="/gallery">
+              <Link className="hover:text-blue-500" href="/Gallery">
                 Gallery
               </Link>
             </li>
             <li>
-              <Link className="hover:text-blue-500" href="/overview">
+              <Link className="hover:text-blue-500" href="/Overview">
                Overview
               </Link>
             </li>
