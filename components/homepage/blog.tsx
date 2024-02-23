@@ -18,12 +18,15 @@ export default function Component() {
   }
 interface Post {
   id: number;
-  title: { rendered: string };
+  title: {
+    rendered: string;
+  };
   featured_media: number;
-  content: { rendered: string };
-  media: Media | string | null; // Allow both Media and string
+  content: {
+    rendered: string;
+  };
+  media: Media | null; // Assuming you're adding media property
 }
-
 
   const [posts, setPosts] = React.useState([]);
 
@@ -57,17 +60,17 @@ interface Post {
   };
 
   // Fetch WordPress posts and media using useEffect
- const fetchData = async () => {
-   const [postsData, mediaData]: [Post[], Media[]] = await Promise.all([fetchPosts(), fetchMedia()]);
-   const mergedPosts = postsData.map((post: Post) => {
-    const media = mediaData.find((mediaItem: Media) => mediaItem.id === post.featured_media);
-    return {
-      ...post,
-      media: media || null,
-    };
-  });
-  setPosts(mergedPosts);
-};
+  const fetchData = async () => {
+    const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
+    const mergedPosts = postsData.map((post: Post) => {
+      const media = mediaData.find((mediaItem: Media) => mediaItem.id === post.featured_media);
+      return {
+        ...post,
+        media: media || null // Assuming media can be null if not found
+      };
+    });
+    setPosts(mergedPosts);
+  };
 
 useEffect(() => {
   fetchData();
