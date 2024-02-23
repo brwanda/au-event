@@ -28,8 +28,7 @@ interface Post {
   media: Media | null; // Assuming you're adding media property
 }
 
-  const [posts, setPosts] = React.useState([]);
-
+  const [posts, setPosts] = useState<Post[]>([]);
   // Function to fetch media
   const fetchMedia = async () => {
     try {
