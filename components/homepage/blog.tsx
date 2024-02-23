@@ -96,7 +96,8 @@ useEffect(() => {
             onMouseLeave={plugin.current.reset}
           >
             <CarouselContent className="-ml-1">
-              {posts.map(post => (
+              {posts.length > 0 && (
+        posts.map((post) => (
                 <CarouselItem key={post.id} className="pl-1 md:basis-1/2 lg:basis-1/3 flex flex-col rounded-lg shadow-lg overflow-hidden">
                   <div className="p-1">
                     <div className="flex-shrink-0">
@@ -125,7 +126,8 @@ useEffect(() => {
                     </div>
                   </div>
                 </CarouselItem>
-              ))}
+              ))
+      )}
             </CarouselContent>
           </Carousel>
         </div>
