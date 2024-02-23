@@ -18,6 +18,10 @@ interface Media {
   id: number;
   // other properties of a media item
 }
+  interface MediaItem {
+  id: number; // Assuming `id` is of type number
+  // Other properties of a media item
+}
 
 
   // Function to fetch media
