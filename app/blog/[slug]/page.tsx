@@ -106,6 +106,5 @@ interface Post {
   title: { rendered: string };
   featured_media: number;
   content: { rendered: string };
-  media: string | null;
-  // other properties of a post
+  media: Media | string | null; // Allow both Media and string
 }
