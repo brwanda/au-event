@@ -82,7 +82,7 @@ export default function Home() {
 
   
    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-white">
-        <h1 className="sm:text-6xl  font-bold py-4 mainactor">Welcome To Authentic Events!</h1>
+        <h1 className="sm:text-6xl text-4xl  font-bold py-4 ">Welcome To Authentic Events!</h1>
         <p className="mt-4 sm:max-w-2xl text-xl py-2 simpleactor">
        Stay tuned the page you wanted currently under development . please you can move to the other page
         </p>
