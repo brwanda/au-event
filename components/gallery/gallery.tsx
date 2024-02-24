@@ -30,7 +30,7 @@ const Gallery = () => {
    loading="lazy"
             className="rounded-lg nowimage"
             style={{width:'95%', height: '100%', objectFit: 'contain'}}
-            sizes='60vw' priority
+            sizes='60vw' 
           />
           </Link>
           ))
