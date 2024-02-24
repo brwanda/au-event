@@ -22,8 +22,9 @@ function about() {
         </h1>
                 <p className="mt-4 text-lg text-gray-700">
         Authentic Events, a subsidiary of Authentic Development Agency (ADA), is a profit-making company dedicated to revolutionizing the events sector in Rwanda and the region. <br />
-With over two decades of experience in organizing mega events, we specialize in event production and management, aiming to provide lasting solutions while creating resilient job opportunities for community members.<br />
-Our team comprises seasoned professionals with a wealth of experience in event management. <br />
+                  <br />
+With over two decades of experience in organizing mega events, we specialize in event production and management, aiming to provide lasting solutions while creating resilient job opportunities for community members.<br /><br />
+Our team comprises seasoned professionals with a wealth of experience in event management. <br /><br />
 We are committed to providing innovative solutions that exceed client expectations and contribute to the growth and development of the industry. Through our expertise and dedication, we strive to make a meaningful impact on the events landscape while upholding the values of authenticity, excellence, and community empowerment.
         </p>
             
