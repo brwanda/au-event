@@ -87,6 +87,7 @@ export default function Home() {
           At Authentic Events, we specialize in creating unforgettable experiences through expert event production and
           management services. Our mission is to exceed expectations by delivering innovative solutions and exceptional
           service to every client.
+          
         </p>
         <div className="mt-8 flex space-x-4">
           <Button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded roundnow">OUR SERVICES</Button>
