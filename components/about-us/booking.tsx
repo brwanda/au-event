@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 export default function Component() {
   return (
     <section
-      className="relative bg-cover bg-center text-white h-1/3"
+      className="relative bg-cover bg-center text-white h-1/3 "
       style={{
         backgroundImage: "url('https://res.cloudinary.com/dxtjjbk95/image/upload/v1708470093/Authentic%20Events/52600418505_36c49735cf_o_qcfgtj.jpg')",
       }}
