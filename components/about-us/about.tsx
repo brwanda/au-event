@@ -16,7 +16,7 @@ function about() {
             />
           </div>
           <div className="w-full md:w-1/2  items-center">
-              <div className="text-left">
+              <div className="text-justify">
              <h1 className="mt-4 text-4xl  font-bold leading-tight text-gray-900 py-4">
         About Us
         </h1>
