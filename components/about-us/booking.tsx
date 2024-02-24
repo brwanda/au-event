@@ -9,6 +9,7 @@ export default function Component() {
         height:"60vh auto",
       }}
     >
+      
       <div className="container mx-auto px-6 py-20 h-1/3 items-center">
         <div className="container w-full md:w-1/2 px-4 ">
           <h2 className="text-6xl font-bold-lg mb-2">Book Your Next Event With Us!</h2>
