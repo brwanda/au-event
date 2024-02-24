@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Image from "next/image";
+import Skeleton from "@/components/blog/skeleton";
 import axios from 'axios'; // Import axios for making HTTP requests
 
 export default function Component() {
@@ -28,6 +29,13 @@ interface Post {
   slug: string;
   media: Media | null; // Assuming you're adding media property
 }
+const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   const [posts, setPosts] = useState<Post[]>([]);
   // Function to fetch media
@@ -78,6 +86,7 @@ useEffect(() => {
 
   return (
     <div className="bg-white py-12">
+       {loading ? <Skeleton /> :
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -132,6 +141,7 @@ useEffect(() => {
           </Carousel>
         </div>
       </div>
+}
     </div>
   );
 }

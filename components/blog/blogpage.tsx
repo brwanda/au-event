@@ -47,7 +47,7 @@ const [loading, setLoading] = useState(true);
   // Function to fetch posts
   const fetchPosts = async () => {
     try {
-      const response = await axios.get('https://blog.awm-global.org/wp-json/wp/v2/posts?per_page=4');
+      const response = await axios.get('https://blog.awm-global.org/wp-json/wp/v2/posts');
       return response.data;
     } catch (error) {
       console.error('Error fetching WordPress posts:', error);
@@ -87,9 +87,6 @@ useEffect(() => {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div className="sm:text-left">
               <h3 className="text-2xl font-extrabold text-gray-900 sm:text-4xl">Blog/News</h3>
-            </div>
-            <div className="text-right">
-              <Link href="/all-blog"><Button className="nw-full btnheader-2 text-white">All Blog { '>>'}</Button></Link>
             </div>
           </div>
         </div>

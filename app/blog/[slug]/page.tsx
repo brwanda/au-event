@@ -5,6 +5,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import axios from 'axios';
 import Image from 'next/image';
+import Skeleton from "@/components/skeleton";
 import { Metadata } from "next";
 
 
@@ -29,7 +30,13 @@ interface Post {
   content: { rendered: string };
   media: Media | string | null; // Allow both Media and string
 }
+const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   // Function to fetch media
   const fetchMedia = async () => {
     try {
@@ -78,6 +85,8 @@ useEffect(() => {
   return (
     <>
       <Header />
+    {loading ? <Skeleton /> :
+      <>
       {posts.length > 0 && (
         posts.map((post) => (
           <article key={post.id}>
@@ -110,6 +119,8 @@ useEffect(() => {
           </article>
         ))
       )}
+      </>
+}
       <Footer />
     </>
   );
