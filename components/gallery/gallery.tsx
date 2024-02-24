@@ -21,12 +21,13 @@ const Gallery = () => {
         {
         MyImgUrl.map((MyImgUrl, index) => (
         <Link key={index} href={`/Image/${index}`}>
- <Image
+ <img
             src={MyImgUrl}
             alt={MyImgUrl}
             layout="responsive"
             width={100}
             height={100}
+   loading="lazy"
             className="rounded-lg nowimage"
             style={{width:'95%', height: '100%', objectFit: 'contain'}}
             sizes='60vw' priority
