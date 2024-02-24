@@ -24,7 +24,7 @@ const Gallery = () => {
  <img
             src={MyImgUrl}
             alt={MyImgUrl}
-            layout="responsive"
+           
             width={100}
             height={100}
    loading="lazy"
