@@ -9,7 +9,7 @@ export default function Component() {
                 
                    
                  <svg
-          className="h-2/6 w-full text-gray-200 dark:text-gray-600"
+          className="h-56 w-full text-gray-200 dark:text-gray-300"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -26,15 +26,15 @@ export default function Component() {
                     </div>
                     <div className="text-justify">
           <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-200 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-200 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-200 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-200 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-200 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-200 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-200 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-200 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-200 rounded-full mb-3"></div>
                     </div>
                   </div>
                 </div>
