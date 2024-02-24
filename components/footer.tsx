@@ -9,8 +9,7 @@ function footer() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <div className="flex items-center space-x-4 mb-4">
-            
-        <Image
+       <Image
       src="https://res.cloudinary.com/dxtjjbk95/image/upload/v1708472818/Authentic%20Events/FULL_LG_kmurtg.png"
       width={150}
       height={300}
