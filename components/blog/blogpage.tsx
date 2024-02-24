@@ -85,14 +85,13 @@ useEffect(() => {
             </div>
           </div>
         </div>
-        <div className="mt-10">
-         
-            <div className="-ml-1">
+        <div className="mt-12">
+          <div className="grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
+
               {posts.length > 0 && (
         posts.map((post) => (
-                <div key={post.id} className="pl-1 md:basis-1/2 lg:basis-1/3 flex flex-col rounded-lg shadow-lg overflow-hidden">
-                  <div className="p-1">
-                    <div className="flex-shrink-0">
+          <div key={post.id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+          <div className="flex-shrink-0">
                       {post.media && (
                         <Image
                           alt=""
@@ -117,7 +116,7 @@ useEffect(() => {
                       </div>
                     </div>
                   </div>
-                </div>
+                
               ))
       )}
             </div>
