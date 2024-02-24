@@ -5,7 +5,7 @@ export default function Component() {
     <section
       className="relative bg-cover bg-center text-white h-1/3 "
       style={{
-        backgroundImage: "url('https://res.cloudinary.com/dxtjjbk95/image/upload/v1708470093/Authentic%20Events/52600418505_36c49735cf_o_qcfgtj.jpg')",
+        backgroundImage: "url('https://res.cloudinary.com/dxtjjbk95/image/upload/v1708738952/Authentic%20Events/BOOK_NOW_page-0001_mvvdkh.jpg')",
         height:"60vh",
       }}
     >
