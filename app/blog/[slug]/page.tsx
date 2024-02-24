@@ -100,7 +100,7 @@ useEffect(() => {
                     <div className="text-left">
                       <p className="mt-1 text-3xl font-extrabold sm:text-3xl sm:tracking-tight lg:text-3xl">{post.title.rendered}</p>
                     </div>
-                    <div className="text-left">
+                    <div className="text-justify">
                       <p className="mt-4 text-lg text-gray-700" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
                     </div>
                   </div>
