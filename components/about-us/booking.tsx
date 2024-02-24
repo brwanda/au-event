@@ -12,8 +12,7 @@ export default function Component() {
         <div className="w-full md:w-1/2">
           <h2 className="text-5xl font-bold mb-2">Book Your Next Event With Us!</h2>
           <p className="text-lg mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
+            Contact us to start planning your next memorable event
           </p>
           <Button className="bg-yellow-400 text-black hover:bg-yellow-500 rounded-full">Book Now</Button>
         </div>
