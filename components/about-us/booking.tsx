@@ -12,10 +12,11 @@ export default function Component() {
       <div className="container mx-auto px-6 py-20 h-1/3 items-center">
         <div className="container w-full md:w-1/2 px-4 ">
           <h2 className="text-6xl font-bold-lg mb-2">Book Your Next Event With Us!</h2>
-          <p className="text-lg mb-4">
+          <p className="text-2xl mb-4 py-2">
             Contact us to start planning your next memorable event
           </p>
-          <Button className="bg-yellow-400 text-black hover:bg-yellow-500 rounded-full">Book Now</Button>
+          
+          <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded roundnow">Book Now</Button>
         </div>
       </div>
     </section>
