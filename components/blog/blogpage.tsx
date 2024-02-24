@@ -1,104 +1,129 @@
-import { Button } from "@/components/ui/button"
+"use client";
+// pages/index.js
+import { Button } from "@/components/ui/button";
+import React, { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
+import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
+import axios from 'axios'; // Import axios for making HTTP requests
 
 export default function Component() {
+    interface Media {
+    id: number;
+    source_url: string; // Ensure this property exists
+  }
+interface Post {
+  id: number;
+  title: {
+    rendered: string;
+  };
+  featured_media: number;
+  content: {
+    rendered: string;
+  };
+  slug: string;
+  media: Media | null; // Assuming you're adding media property
+}
+
+  const [posts, setPosts] = useState<Post[]>([]);
+  // Function to fetch media
+  const fetchMedia = async () => {
+    try {
+      const response = await axios.get('https://blog.awm-global.org/wp-json/wp/v2/media');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching media:', error);
+      return [];
+    }
+  };
+
+  // Function to fetch posts
+  const fetchPosts = async () => {
+    try {
+      const response = await axios.get('https://blog.awm-global.org/wp-json/wp/v2/posts?per_page=4');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching WordPress posts:', error);
+      return [];
+    }
+  };
+
+  // Function to remove HTML tags and extract first 20 words
+  const extractContent =  (html: string) => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const text = doc.body.textContent || "";
+    return text.trim().split(/\s+/).slice(0, 20).join(" ");
+  };
+
+  // Fetch WordPress posts and media using useEffect
+  const fetchData = async () => {
+    const [postsData, mediaData] = await Promise.all([fetchPosts(), fetchMedia()]);
+    const mergedPosts = postsData.map((post: Post) => {
+      const media = mediaData.find((mediaItem: Media) => mediaItem.id === post.featured_media);
+      return {
+        ...post,
+        media: media || null // Assuming media can be null if not found
+      };
+    });
+    setPosts(mergedPosts);
+  };
+
+useEffect(() => {
+  fetchData();
+}, []);
+
   return (
-    <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-screen-xl mx-auto">
+    <div className="bg-white py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">Blog/News</h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-          </p>
-        </div>
-        <div className="mt-12">
-          <div className="grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
-            <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0">
-           
-                 <svg
-          className="h-48 w-full text-gray-200 dark:text-gray-600"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 20 18"
-        
-        >
-          <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
-        </svg>
-              </div>
-              <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-              <div className="flex-1">
-                <div className="h-4 bg-gray-300 rounded-full mb-4"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-                </div>
-                <div className="mt-6">
-                <div className="h-6 bg-gray-300 rounded-full mb-3"></div>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="sm:text-left">
+              <h3 className="text-2xl font-extrabold text-gray-900 sm:text-4xl">Blog/News</h3>
             </div>
-            <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0">
-              <svg
-          className="h-48 w-full text-gray-200 dark:text-gray-600"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 20 18"
-        
-        >
-          <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
-        </svg>
-              </div>
-              <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                <div className="flex-1">
-                <div className="h-4 bg-gray-300 rounded-full mb-4"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-                </div>
-                <div className="mt-6">
-                <div className="h-6 bg-gray-300 rounded-full mb-3"></div>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0">
-              <svg
-          className="h-48 w-full text-gray-200 dark:text-gray-600"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 20 18"
-          
-        >
-          <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
-        </svg>
-              </div>
-              <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-              <div className="flex-1">
-                <div className="h-4 bg-gray-300 rounded-full mb-4"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
-                </div>
-                <div className="mt-6">
-                <div className="h-6 bg-gray-300 rounded-full mb-3"></div>
-                </div>
-              </div>
+            <div className="text-right">
+              <Link href="/all-blog"><Button className="nw-full btnheader-2 text-white">All Blog { '>>'}</Button></Link>
             </div>
           </div>
         </div>
+        <div className="mt-10">
+         
+            <div className="-ml-1">
+              {posts.length > 0 && (
+        posts.map((post) => (
+                <div key={post.id} className="pl-1 md:basis-1/2 lg:basis-1/3 flex flex-col rounded-lg shadow-lg overflow-hidden">
+                  <div className="p-1">
+                    <div className="flex-shrink-0">
+                      {post.media && (
+                        <Image
+                          alt=""
+                          className="h-48 w-full object-cover"
+                          height="192"
+                          src={post.media.source_url}
+                          style={{
+                            aspectRatio: "384/192",
+                            objectFit: "cover",
+                          }}
+                          width="384"
+                        />
+                      )}
+                    </div>
+                    <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                      <div className="flex-1">
+                        <p className="text-xl font-semibold text-gray-900">{post.title.rendered}</p>
+                        <p className="mt-3 text-base text-gray-500">{extractContent(post.content.rendered)}</p>
+                      </div>
+                      <div className="mt-6">
+                       <Link href={`/blog/${post.slug}`}><Button className="w-full btnheader-2 text-white">Read More</Button></Link> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))
+      )}
+            </div>
+        
+        </div>
       </div>
     </div>
-  )
+  );
 }
-
