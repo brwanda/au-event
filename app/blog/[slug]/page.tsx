@@ -4,6 +4,17 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import axios from 'axios';
 import Image from 'next/image';
+import { Metadata } from "next";
+
+
+
+
+export const metadata: Metadata = {
+  title: "AUTHENTIC EVENT - BLOG",
+  description: "AUTHENTIC EVENT",
+};
+
+
 
 const ImagePage: React.FC<{ params: { slug: string } }> = ({ params: { slug } }) => {
   const [posts, setPosts] = useState<Post[]>([]);
