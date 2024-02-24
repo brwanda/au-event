@@ -56,10 +56,10 @@ interface Post {
   };
 
   // Improved content extraction using regular expressions (optional)
-  const extractContent = (html: string) => {
-    const cleanedHtml = html.replace(/<[^>]+>/g, ''); // Remove HTML tags
-    return cleanedHtml.trim();
-  };
+  //const extractContent = (html: string) => {
+  //  const cleanedHtml = html.replace(/<[^>]+>/g, ''); // Remove HTML tags
+    // return cleanedHtml.trim();
+   // };
 
   // Fetch WordPress posts and media using useEffect
 const fetchData = async () => {
@@ -104,7 +104,7 @@ useEffect(() => {
                       <p className="mt-1 text-3xl font-extrabold sm:text-3xl sm:tracking-tight lg:text-3xl">{post.title.rendered}</p>
                     </div>
                     <div className="text-left">
-                      <p className="mt-4 text-lg text-gray-700">{extractContent(post.content.rendered)}</p>
+                      <p className="mt-4 text-lg text-gray-700">{post.content.rendered}</p>
                     </div>
                   </div>
                 </div>
