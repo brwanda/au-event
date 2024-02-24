@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button"
 export default function Component() {
   return (
     <section
-      className="relative bg-cover bg-center text-white h-1/3 md:h-auto"
+      className="relative bg-cover bg-center text-white h-1/3 "
       style={{
         backgroundImage: "url('https://res.cloudinary.com/dxtjjbk95/image/upload/v1708738952/Authentic%20Events/BOOK_NOW_page-0001_mvvdkh.jpg')",
-        height:"60vh",
+        height:"60vh auto",
       }}
     >
       <div className="container mx-auto px-6 py-20 h-1/3 items-center">
