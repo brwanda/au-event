@@ -89,8 +89,8 @@ export default function Home() {
           service to every client.
         </p>
         <div className="mt-8 flex space-x-4">
-          <Link href="#Our-services" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded roundnow">OUR SERVICES</Link>
-          <Link href="/gallery" className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded roundnow">
+          <Link href="#Our-services" className="bg-blue-500 hover:bg-blue-600 text-white font-bold rounded roundnow">OUR SERVICES</Link>
+          <Link className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold  rounded roundnow">
             SEE GALLERY
           </Link>
         </div>
