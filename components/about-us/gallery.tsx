@@ -11,6 +11,7 @@ const Gallery = () => {
                 <span className="inline-block text-gray-600 slok px-4 py-1 rounded-full text-sm font-semibold tracking-wide">
                   ALL
                 </span>
+                
               </div>
             </div>
           </div>
