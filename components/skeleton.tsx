@@ -9,7 +9,7 @@ export default function Component() {
                 
                    
                  <svg
-          className="h-3/6 w-full text-gray-200 dark:text-gray-600"
+          className="h-2/6 w-full text-gray-200 dark:text-gray-600"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
