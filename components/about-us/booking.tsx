@@ -8,7 +8,7 @@ export default function Component() {
         backgroundImage: "url('https://res.cloudinary.com/dxtjjbk95/image/upload/v1708470093/Authentic%20Events/52600418505_36c49735cf_o_qcfgtj.jpg')",
       }}
     >
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-10 py-20">
         <div className="w-full md:w-1/2">
           <h2 className="text-5xl font-bold mb-2">Book Your Next Event With Us!</h2>
           <p className="text-lg mb-4">
