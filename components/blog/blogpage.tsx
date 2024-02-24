@@ -28,21 +28,16 @@ export default function Component() {
         </svg>
               </div>
               <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                <div className="flex-1">
-                  <p className="text-sm leading-5 font-medium text-indigo-600">Authentic Events</p>
-                  <a className="block" href="#">
-                    <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
-                      Transforming the Event Management Landscape in Rwanda
-                    </h3>
-                    <p className="mt-3 text-base leading-6 text-gray-500">
-                      Join us on a journey of excellence and innovation in the world of event planning.
-                    </p>
-                  </a>
+              <div className="flex-1">
+                <div className="h-4 bg-gray-300 rounded-full mb-4"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
                 </div>
                 <div className="mt-6">
-                  <Button className="w-full" variant="default">
-                    Read More
-                  </Button>
+                <div className="h-6 bg-gray-300 rounded-full mb-3"></div>
                 </div>
               </div>
             </div>
@@ -61,22 +56,15 @@ export default function Component() {
               </div>
               <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                 <div className="flex-1">
-                  <p className="text-sm leading-5 font-medium text-indigo-600">
-                    Elevate Your Events with Authentic Events
-                  </p>
-                  <a className="block" href="#">
-                    <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
-                      Join Us on a Journey of Excellence
-                    </h3>
-                    <p className="mt-3 text-base leading-6 text-gray-500">
-                      Discover the secrets to creating memorable and impactful events with our expert team.
-                    </p>
-                  </a>
+                <div className="h-4 bg-gray-300 rounded-full mb-4"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
                 </div>
                 <div className="mt-6">
-                  <Button className="w-full" variant="default">
-                    Read More
-                  </Button>
+                <div className="h-6 bg-gray-300 rounded-full mb-3"></div>
                 </div>
               </div>
             </div>
@@ -94,21 +82,16 @@ export default function Component() {
         </svg>
               </div>
               <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                <div className="flex-1">
-                  <p className="text-sm leading-5 font-medium text-indigo-600">Mastering Event Planning</p>
-                  <a className="block" href="#">
-                    <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
-                      7 Tips for Hosting Successful Events
-                    </h3>
-                    <p className="mt-3 text-base leading-6 text-gray-500">
-                      Enhance your event planning skills with our top strategies for success.
-                    </p>
-                  </a>
+              <div className="flex-1">
+                <div className="h-4 bg-gray-300 rounded-full mb-4"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
+      <div className="h-3 bg-gray-300 rounded-full mb-3"></div>
                 </div>
                 <div className="mt-6">
-                  <Button className="w-full" variant="default">
-                    Read More
-                  </Button>
+                <div className="h-6 bg-gray-300 rounded-full mb-3"></div>
                 </div>
               </div>
             </div>
