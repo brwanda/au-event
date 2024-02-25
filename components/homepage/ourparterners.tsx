@@ -11,9 +11,7 @@ export default function Component() {
              <div className="sm:text-left">
                <h3 className="text-2xl font-extrabold text-gray-900 sm:text-4xl">Blog/News</h3>
              </div>
-             <div className="text-right">
-               <Link href="/all-blog"><Button className="nw-full btnheader-2 text-white">All Blog { '>>'}</Button></Link>
-             </div>
+            
            </div>
          </div>
          <div className="mt-10">
