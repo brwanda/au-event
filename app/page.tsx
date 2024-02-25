@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import Event from "@/components/homepage/event";
 import Historic from "@/components/homepage/historic";
 import Blog from "@/components/homepage/blog";
+import Parterners from "@/components/homepage/ourparterners"
 import Frequent from "@/components/homepage/frequent"
 import { Metadata } from "next";
 
@@ -27,6 +28,7 @@ function HomePage() {
       <Event />
       <Highlight />
       <Blog />
+      <Parterners />
       <Frequent />
       <Footer />
 
