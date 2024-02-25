@@ -22,7 +22,7 @@ export default function Component() {
         MyPartern.map((MyPartern, index) => (
       
          
-                 <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3 flex flex-col rounded-lg shadow-lg overflow-hidden">
+                 <CarouselItem key={index} className="pl-1  sm:basis-1/3 md:basis-1/4 lg:basis-1/5 flex flex-col rounded-lg shadow-lg overflow-hidden">
                      <img
               alt={MyPartern}
               className="min-w-[200px]"
