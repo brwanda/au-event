@@ -1,17 +1,16 @@
 "use client";
 import React, { useRef, useState, useEffect, createRef } from 'react';
 import './home.css';
+import { useRouter } from 'next/navigation';
 
-function videoPlayernow() {
-    const videoRef = useRef(null);
+function VideoPlayerNow() {
+  const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(1); 
   const [isFullScreen, setIsFullScreen] = useState(false);
-
-  // Ensure videoRef is available on initial render
-  const initialVideoRef = createRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -31,7 +30,7 @@ function videoPlayernow() {
       video.removeEventListener('timeupdate', updateVideoTime);
       video.removeEventListener('loadedmetadata', updateVideoDuration);
     };
-  }, [videoRef]); // Include both refs in dependency array
+  }, []);
 
   const togglePlayPause = () => {
     const video = videoRef.current;
@@ -80,7 +79,7 @@ function videoPlayernow() {
       <div className='container'>
         <div className='row'>
           <div className='col-lg-12'>
-            <h2 className='section-title'>ThrowBack</h2>
+            <h2 className='section-title'>ThrowBack</h2>   
             <center>
               <div className='containersas show-controls'>
                 <div className='wrappersasa'>
@@ -114,23 +113,22 @@ function videoPlayernow() {
                     </li>
                     <li className='options right'>
                       <div className='video-timer'>
-                        <span className='current-time'>{formatTime(currentTime)}</span>
+                        <span className='current-time'>{currentTime}</span>
                         <span className='separator'> / </span>
-                        <span className='video-duration'>{formatTime(duration)}</span>
+                        <span className='video-duration'>{duration}</span>
                       </div>
                     </li>
                   </ul>
+                </div>
+                <div className='video-name'>CrossOver 2023</div>
+                <video ref={videoRef} src="https://res.cloudinary.com/dxtjjbk95/video/upload/v1708851646/Authentic%20Events/CrossOver2023_xsledz.mp4"></video>
+              </div>
+            </center>
+          </div>
+        </div>
       </div>
-      <div className='video-name'>CrossOver 2023</div>
-      <video ref={videoRef} src="https://res.cloudinary.com/dxtjjbk95/video/upload/v1708851646/Authentic%20Events/CrossOver2023_xsledz.mp4"></video>
-    </div>
- </center>
-    </div>
-    </div>
-    </div>
-
-</section>
-  )
+    </section>
+  );
 }
 
-export default videoPlayernow
+export default VideoPlayerNow;
