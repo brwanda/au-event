@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import AboutusButton from "@/components/button/aboutusbutton";
+import OurserviceButton from "@/components/button/ourservice";
+import GalleryButton from "@/components/button/gallerybutton";
 import Image from "next/image";
 import { Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
@@ -91,10 +92,8 @@ export default function Home() {
           
         </p>
         <div className="mt-8 flex space-x-4">
-  <AboutusButton />
-          <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded roundnow">
-            SEE GALLERY
-          </Button>
+  <OurserviceButton />
+          <GalleryButton />
         </div>
       </div>
     </div>

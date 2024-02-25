@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import AboutusButton from "@/components/button/aboutusbutton";
+import GalleryButton from "@/components/button/gallerybutton";
 import { Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Button } from "@/components/ui/button";
@@ -87,10 +89,8 @@ export default function Home() {
        Stay tuned the page you wanted currently under development . please you can move to the other page
         </p>
         <div className="mt-8 flex space-x-4">
-      <Button  className="bg-blue-500 hover:bg-blue-600 text-white font-bold  py-2  px-4 rounded roundnow">ABOUT US</Button>
-   <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded roundnow">
-            SEE GALLERY
-          </Button>
+        <AboutusButton />
+          <GalleryButton />
           
         </div>
       </div>
