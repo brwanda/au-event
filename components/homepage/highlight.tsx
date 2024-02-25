@@ -37,9 +37,10 @@ function VideoPlayerNow() {
 
 const togglePlayPause = () => {
     const video = videoRef.current;
-  
+  if(video){
     setIsPlaying(!isPlaying);
     video.paused ? video.play() : video.pause();
+  }
   };
 
   const handleSkipBackward = () => {
