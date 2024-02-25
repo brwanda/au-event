@@ -87,11 +87,11 @@ export default function Home() {
        Stay tuned the page you wanted currently under development . please you can move to the other page
         </p>
         <div className="mt-8 flex space-x-4">
-          <Link href="/about-us" className="items-center text-center"><Button  className="bg-blue-500 hover:bg-blue-600 text-white font-bold  py-2  px-4 rounded roundnow">ABOUT US</Button></Link>
-           <Link href="/gallery" className="items-center text-center"> <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded roundnow">
+      <Button  className="bg-blue-500 hover:bg-blue-600 text-white font-bold  py-2  px-4 rounded roundnow">ABOUT US</Button>
+   <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded roundnow">
             SEE GALLERY
           </Button>
-             </Link>
+          
         </div>
       </div>
     </div>
