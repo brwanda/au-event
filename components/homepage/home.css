@@ -40,12 +40,11 @@
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
   transition: all 0.3s ease;
-  opacity: 0;
+  opacity: 10;
+
 }
 
-.containersas:hover .video-name {
-  opacity: 10;
-}
+
 /* ... (remaining CSS code) ... */
 .containersas{
   width: 98%;
