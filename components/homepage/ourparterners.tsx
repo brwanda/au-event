@@ -17,9 +17,12 @@ export default function Component() {
   const currentSlideRef = useRef(0);
 
   useEffect(() => {
+    // Ensure containerRef is available before accessing its properties
+    if (!containerRef.current) return;
+
     const intervalId = setInterval(() => {
       const containerWidth = containerRef.current.clientWidth;
-      const slideWidth = containerRef.current.firstChild.clientWidth;
+      const slideWidth = containerRef.current.firstChild?.clientWidth || 0; // Handle potential missing firstChild
 
       currentSlideRef.current = (currentSlideRef.current + 1) % images.length;
       containerRef.current.style.transform = `translateX(-${currentSlideRef.current * slideWidth}px)`;
