@@ -1,3 +1,5 @@
+"use client"
+
 import { MyPartern } from '@/parterners';
 import { useEffect, useRef } from 'react';
 
