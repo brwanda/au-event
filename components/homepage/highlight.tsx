@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect, createRef } from 'react';
 import './home.css';
 
 function videoPlayernow() {
-  const videoRef = useRef(null);
+    const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -14,7 +14,7 @@ function videoPlayernow() {
   const initialVideoRef = createRef(null);
 
   useEffect(() => {
-    const video = initialVideoRef.current || videoRef.current;
+    const video = videoRef.current;
 
     const updateVideoTime = () => {
       setCurrentTime(video.currentTime);
@@ -31,7 +31,7 @@ function videoPlayernow() {
       video.removeEventListener('timeupdate', updateVideoTime);
       video.removeEventListener('loadedmetadata', updateVideoDuration);
     };
-  }, [initialVideoRef, videoRef]); // Include both refs in dependency array
+  }, [videoRef]); // Include both refs in dependency array
 
   const togglePlayPause = () => {
     const video = videoRef.current;
