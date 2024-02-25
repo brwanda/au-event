@@ -3,29 +3,29 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 
 export default function Component() {
     return (
-        <div className="bg-[#f8fafc] py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-base font-semibold uppercase tracking-wide text-indigo-600">Discover Gallery</h2>
-            <p className="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">Last Events</p>
-            <div className="mt-5 max-w-md mx-auto">
-              <div className="flex justify-center">
-                <div className="inline-flex items-center px-4 py-1 border border-transparent text-base font-medium rounded-md text-white bg-black">
-                  All
-                </div>
-              </div>
-            </div>
-          </div>
-          <Carousel  className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <CarouselContent>
-            
+        <div className="bg-white py-12">
         
-          {
+       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+         <div className="text-center">
+           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+             <div className="sm:text-left">
+               <h3 className="text-2xl font-extrabold text-gray-900 sm:text-4xl">Blog/News</h3>
+             </div>
+             <div className="text-right">
+               <Link href="/all-blog"><Button className="nw-full btnheader-2 text-white">All Blog { '>>'}</Button></Link>
+             </div>
+           </div>
+         </div>
+         <div className="mt-10">
+           <Carousel>
+             <CarouselContent className="-ml-1">
+
+             {
         MyPartern.map((MyPartern, index) => (
-           
-            <CarouselItem key={index} >
-           <div className="">
-            <img
+      
+         
+                 <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3 flex flex-col rounded-lg shadow-lg overflow-hidden">
+                     <img
               alt={MyPartern}
               className="min-w-[200px]"
               height="100"
@@ -36,18 +36,15 @@ export default function Component() {
               }}
               width="200"
             />
-            </div>
-            </CarouselItem>
-
-            ))
-        }
-        </CarouselContent>
-        </Carousel>
-           
-          
-        
-        </div>
-      </div>
+                 </CarouselItem>
+               ))
+       }
+             </CarouselContent>
+           </Carousel>
+         </div>
+       </div>     
+       </div>    
+      
          
          
     )
