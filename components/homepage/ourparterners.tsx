@@ -2,10 +2,10 @@ import { MyPartern } from '@/parterners';
 
 export default function Component() {
     return (
-      <section aria-label="Our Affiliates" className="bg-white py-8">
+      <section aria-label="Our Affiliates" className="bg-gray-200 py-8">
         <div className="container mx-auto px-4">
           <h2 className="text-center text-3xl font-bold uppercase mb-6">Our Affiliates</h2>
-          <div className="flex overflow-x-auto space-x-5">
+          <div className="flex overflow-x-auto space-x-2">
           {
         MyPartern.map((MyPartern, index) => (
             <img
