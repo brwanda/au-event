@@ -93,16 +93,9 @@ const togglePlayPause = () => {
     <section className='py-3'>
       <div className='container'>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-base font-semibold uppercase tracking-wide text-gray-600">Discover Gallery</h2>
-            <p className="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">Latest Events</p>
-            <div className="mt-5 max-w-md mx-auto">
-              <div className="text-center">
-                <span className="inline-block text-gray-600 slok px-4 py-1 rounded-full text-sm font-semibold tracking-wide">
-                  ALL
-                </span>
-              </div>
-            </div>
+          <div className="text-center py-2">
+            <p className="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">Highlights</p>
+           
           </div>
             <center>
               <div className='containersas show-controls'>
