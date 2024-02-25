@@ -1,5 +1,5 @@
 import { MyPartern } from '@/parterners';
-import React from 'react';
+import React, { useRef } from 'react';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
