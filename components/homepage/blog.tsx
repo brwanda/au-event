@@ -52,7 +52,7 @@ const [loading, setLoading] = useState(true);
   // Function to fetch posts
   const fetchPosts = async () => {
     try {
-      const response = await axios.get('https://blog.awm-global.org/wp-json/wp/v2/posts?per_page=2');
+      const response = await axios.get('https://blog.awm-global.org/wp-json/wp/v2/posts?per_page=3');
       return response.data;
     } catch (error) {
       console.error('Error fetching WordPress posts:', error);
