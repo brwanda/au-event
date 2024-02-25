@@ -3,15 +3,27 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 
 export default function Component() {
     return (
-      <section aria-label="Our Affiliates" className="bg-gray-200 py-8">
-        <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold uppercase mb-6">Our Affiliates</h2>
-          <div className="flex space-x-2">
+        <div className="bg-[#f8fafc] py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-base font-semibold uppercase tracking-wide text-indigo-600">Discover Gallery</h2>
+            <p className="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">Last Events</p>
+            <div className="mt-5 max-w-md mx-auto">
+              <div className="flex justify-center">
+                <div className="inline-flex items-center px-4 py-1 border border-transparent text-base font-medium rounded-md text-white bg-black">
+                  All
+                </div>
+              </div>
+            </div>
+          </div>
           <Carousel>
-            <CarouselContent className="-ml-1">
+          <CarouselContent className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-4 lg:grid-cols-5">
+          
+            
+        
           {
         MyPartern.map((MyPartern, index) => (
-            <CarouselItem key={index} >
+            <CarouselItem key={index} className="group relative">
             <img
               alt={MyPartern}
               className="min-w-[200px]"
@@ -29,8 +41,11 @@ export default function Component() {
         </CarouselContent>
         </Carousel>
            
-          </div>
+          
+        
         </div>
-      </section>
+      </div>
+         
+         
     )
   }
