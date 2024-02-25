@@ -17,8 +17,10 @@ export default function Component() {
         }
       };
   
-      // Start scrolling
-      const intervalId = setInterval(autoScroll, 50); // Adjust the interval as needed
+      let intervalId = setInterval(autoScroll, 50); // Change const to let
+
+      // Later in the cleanup function:
+      clearInterval(intervalId); // Adjust the interval as needed
   
       // Stop scrolling on mouse enter and resume scrolling on mouse leave
       const handleMouseEnter = () => clearInterval(intervalId);
