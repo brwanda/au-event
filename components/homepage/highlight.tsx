@@ -14,23 +14,26 @@ function VideoPlayerNow() {
 
   useEffect(() => {
     const video = videoRef.current;
-
+  
     const updateVideoTime = () => {
-      setCurrentTime(video.currentTime);
+      if (video) setCurrentTime(video.currentTime);
     };
-
+  
     const updateVideoDuration = () => {
-      setDuration(video.duration);
+      if (video) setDuration(video.duration);
     };
-
-    video.addEventListener('timeupdate', updateVideoTime);
-    video.addEventListener('loadedmetadata', updateVideoDuration);
-
-    return () => {
-      video.removeEventListener('timeupdate', updateVideoTime);
-      video.removeEventListener('loadedmetadata', updateVideoDuration);
-    };
+  
+    if (video) {
+      video.addEventListener('timeupdate', updateVideoTime);
+      video.addEventListener('loadedmetadata', updateVideoDuration);
+  
+      return () => {
+        video.removeEventListener('timeupdate', updateVideoTime);
+        video.removeEventListener('loadedmetadata', updateVideoDuration);
+      };
+    }
   }, []);
+  
 
   const togglePlayPause = () => {
     const video = videoRef.current;
