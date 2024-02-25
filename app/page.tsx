@@ -1,5 +1,6 @@
 import Home from "@/components/homepage/header";
 import About from "@/components/homepage/about";
+import Highlight from "@/components/homepage/highlight"
 import Service from "@/components/homepage/service";
 import Footer from "@/components/footer";
 import Event from "@/components/homepage/event";
@@ -24,6 +25,7 @@ function HomePage() {
       <Service />
       <Historic />
       <Event />
+      <Highlight />
       <Blog />
       <Frequent />
       <Footer />
