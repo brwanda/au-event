@@ -1,6 +1,6 @@
 "use client";
 import React,{ useRef, useState, useEffect } from 'react';
-import '@componets/homepage/home.css';
+import '/home.css';
 
 
 function footer() {
