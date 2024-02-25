@@ -61,12 +61,13 @@ const togglePlayPause = () => {
     }// Skip forward 10 seconds
   };
 
-  const handleVolumeChange = (e) => {
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const video = videoRef.current as HTMLVideoElement | null;
-    if(video){
-    const newVolume = parseFloat(e.target.value);
-    video.volume = newVolume;
-    setVolume(newVolume);
+  
+    if (video) {
+      const newVolume = parseFloat(e.target.value);
+      video.volume = newVolume;
+      setVolume(newVolume);
     }
   };
 
