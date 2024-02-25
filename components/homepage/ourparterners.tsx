@@ -23,14 +23,14 @@ export default function Component() {
                  <CarouselItem key={index} className="pl-1  basis-1/2 md:basis-1/4 lg:basis-1/5 flex flex-col overflow-hidden">
                      <img
               alt={MyPartern}
-              className="min-w-[200px]"
+              className="min-w-[150px]"
               height="100"
               src={MyPartern}
               style={{
-                aspectRatio: "200/100",
+                aspectRatio: "150/100",
                 objectFit: "contain",
               }}
-              width="200"
+              width="150"
             />
                  </CarouselItem>
                ))
