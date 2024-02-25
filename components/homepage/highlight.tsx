@@ -48,24 +48,31 @@ const togglePlayPause = () => {
     }
   };
   const handleSkipBackward = () => {
-    const video = videoRef.current;
-    video.currentTime -= 10; // Skip backward 10 seconds
+    const video = videoRef.current as HTMLVideoElement | null;
+    if(video){
+    video.currentTime -= 10;
+    } // Skip backward 10 seconds
   };
 
   const handleSkipForward = () => {
-    const video = videoRef.current;
-    video.currentTime += 10; // Skip forward 10 seconds
+    const video = videoRef.current as HTMLVideoElement | null;
+    if(video){
+    video.currentTime += 10; 
+    }// Skip forward 10 seconds
   };
 
   const handleVolumeChange = (e) => {
-    const video = videoRef.current;
+    const video = videoRef.current as HTMLVideoElement | null;
+    if(video){
     const newVolume = parseFloat(e.target.value);
     video.volume = newVolume;
     setVolume(newVolume);
+    }
   };
 
   const handleToggleFullScreen = () => {
-    const video = videoRef.current;
+    const video = videoRef.current as HTMLVideoElement | null;
+    if(video){
 
     if (!document.fullscreenElement) {
       video.requestFullscreen().catch((err) => {
@@ -76,6 +83,7 @@ const togglePlayPause = () => {
     }
 
     setIsFullScreen(!isFullScreen);
+}
   };
 
   return (
