@@ -7,7 +7,7 @@ export default function Component() {
           <h2 className="text-center text-3xl font-bold uppercase mb-6">Our Affiliates</h2>
           <div className="flex overflow-x-auto space-x-5">
           {
-        MyImgUrl.map((MyPartern, index) => (
+        MyPartern.map((MyPartern, index) => (
             <img
               alt={MyPartern}
               className="min-w-[200px]"
