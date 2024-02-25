@@ -35,14 +35,16 @@ function VideoPlayerNow() {
 }, []);
   
 
-  const togglePlayPause = () => {
+const togglePlayPause = () => {
     const video = videoRef.current;
-    setIsPlaying(!isPlaying);
-
-    if (isPlaying) {
-      video.pause();
-    } else {
-      video.play();
+  
+    if (video) {
+      setIsPlaying(!isPlaying);
+      if (isPlaying) {
+        video.pause();
+      } else {
+        video.play();
+      }
     }
   };
 
