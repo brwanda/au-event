@@ -6,6 +6,10 @@ import { useEffect, useRef } from 'react';
 export default function Component() {
     const containerRef = useRef(null);
 
+    function isHTMLElement(element: any): element is HTMLElement {
+        return element instanceof HTMLElement;
+      }
+      
     useEffect(() => {
       const container = containerRef.current;
   
@@ -30,9 +34,9 @@ export default function Component() {
         intervalId = setInterval(autoScroll, 50); // Resume auto-scrolling
       };
     
-      if (container) {
-        container?.addEventListener('mouseenter', handleMouseEnter) as HTMLElement;
-        container?.addEventListener('mouseleave', handleMouseLeave) as HTMLElement;
+      if (isHTMLElement(container)) {
+        container.addEventListener('mouseenter', handleMouseEnter);
+        container.addEventListener('mouseleave', handleMouseLeave);
       }
     
       // Clean up event listeners and interval
