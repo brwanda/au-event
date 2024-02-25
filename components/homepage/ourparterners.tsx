@@ -1,21 +1,27 @@
 import { MyPartern } from '@/parterners';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Component() {
+    const plugin = React.useRef(
+        Autoplay({ delay: 1500, stopOnInteraction: true })
+      );
     return (
         <div className="bg-white py-12">
         
        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-         <div className="text-center">
-           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-             <div className="sm:text-left">
-               <h3 className="text-2xl font-extrabold text-gray-900 sm:text-4xl">Blog/News</h3>
-             </div>
-            
-           </div>
-         </div>
+       <div className="text-center">
+          <p className="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">Our Parterns</p>
+          <div className="mt-5 max-w-md mx-auto">
+           
+          </div>
+        </div>
          <div className="mt-10">
-           <Carousel>
+           <Carousel
+             plugins={[plugin.current]}
+             onMouseEnter={plugin.current.stop}
+             onMouseLeave={plugin.current.reset}
+             >
              <CarouselContent className="-ml-1">
 
              {
