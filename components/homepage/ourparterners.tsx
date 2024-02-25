@@ -7,7 +7,7 @@ export default function Component() {
     const containerRef = useRef(null);
 
     useEffect(() => {
-      const container = containerRef.current;
+      const container = containerRef.current ?? null;
   
       // Function to scroll the container automatically
       const autoScroll = () => {
