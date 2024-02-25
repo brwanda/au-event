@@ -188,8 +188,8 @@ opacity: 0.75;
 @media (max-width: 318px) {
   .roundnow{
     border-radius: 2em;
-    width: 110px;
-    height: 50px;
+    width: 130px;
+    height: 60px;
   }
 }
 @media (min-width: 767px) and (max-width: 1023px) {
