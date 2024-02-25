@@ -17,13 +17,15 @@ export default function Component() {
             </div>
           </div>
           <Carousel>
-          <CarouselContent className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-4 lg:grid-cols-5">
+          <CarouselContent className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           
             
         
           {
         MyPartern.map((MyPartern, index) => (
-            <CarouselItem key={index} className="group relative">
+           
+            <CarouselItem key={index} >
+                 <div className="group relative">
             <img
               alt={MyPartern}
               className="min-w-[200px]"
@@ -35,7 +37,9 @@ export default function Component() {
               }}
               width="200"
             />
+            </div>
             </CarouselItem>
+
             ))
         }
         </CarouselContent>
