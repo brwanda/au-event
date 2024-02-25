@@ -4,9 +4,11 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import Autoplay from "embla-carousel-autoplay";
 
 export default function Component() {
+
     const plugin = React.useRef(
         Autoplay({ delay: 1500, stopOnInteraction: true })
       );
+      
     return (
         <div className="bg-white py-12">
         
