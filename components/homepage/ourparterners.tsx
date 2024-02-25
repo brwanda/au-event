@@ -1,76 +1,52 @@
 "use client"
-
-import { MyPartern } from '@/parterners';
-import { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export default function Component() {
-    const containerRef = useRef(null);
+  const [images, setImages] = useState([
+    { src: 'https://res.cloudinary.com/dxtjjbk95/image/upload/v1708871360/radioo_uzjtat.png', alt: 'Radio O' },
+    { src: 'https://res.cloudinary.com/dxtjjbk95/image/upload/v1708871364/adalogo-1-a9e-1_hgwm6k.png', alt: 'ADA' },
+    { src: 'https://res.cloudinary.com/dxtjjbk95/image/upload/v1708871362/image-3_kv8jlw.png', alt: 'AIA' },
+    { src: 'https://res.cloudinary.com/dxtjjbk95/image/upload/v1708871361/tvo_pypir7.png', alt: 'O TV' },
+    { src: 'https://res.cloudinary.com/dxtjjbk95/image/upload/v1708871359/image-2_lzxpwk.png', alt: 'BK Insurance' },
+    { src: 'https://res.cloudinary.com/dxtjjbk95/image/upload/v1708871359/adalogo-1-a9e-3_tm7161.png', alt: 'ZTCC' },
+    { src: 'https://res.cloudinary.com/dxtjjbk95/image/upload/v1708871359/adalogo-1-a9e-2_tzgesl.png', alt: 'AWM' },
+    { src: 'https://res.cloudinary.com/dxtjjbk95/image/upload/v1708871359/copy-of-logokira-copy-1_rbhdgh.png', alt: 'TC KIRA' },
+  ]);
 
-    function isHTMLElement(element: any): element is HTMLElement {
-        return element instanceof HTMLElement;
-      }
-      
-    useEffect(() => {
-      const container = containerRef.current;
-  
-      // Function to scroll the container automatically
-      const autoScroll = () => {
-        if (container) {
-          // Type assertion to HTMLElement to access scrollLeft, scrollWidth, and clientWidth
-          (container as HTMLElement).scrollLeft += 2; // Adjust the scrolling speed as needed
-          if ((container as HTMLElement).scrollLeft >= (container as HTMLElement).scrollWidth - (container as HTMLElement).clientWidth) {
-            (container as HTMLElement).scrollLeft = 0;
-          }
-        }
-      };
-  
-      let intervalId = setInterval(autoScroll, 50); // Change const to let
+  const containerRef = useRef(null);
+  const currentSlideRef = useRef(0);
 
-      // Later in the cleanup function:
-      clearInterval(intervalId); // Adjust the interval as needed
-      const handleMouseEnter = () => clearInterval(intervalId);
-      const handleMouseLeave = () => {
-        clearInterval(intervalId);
-        intervalId = setInterval(autoScroll, 50); // Resume auto-scrolling
-      };
-    
-      if (isHTMLElement(container)) {
-        (container as HTMLElement).addEventListener('mouseenter', handleMouseEnter);
-        (container as HTMLElement).addEventListener('mouseleave', handleMouseLeave);
-      }
-    
-      // Clean up event listeners and interval
-      return () => {
-        clearInterval(intervalId);
-        if (container) {
-          container.removeEventListener('mouseenter', handleMouseEnter);
-          container.removeEventListener('mouseleave', handleMouseLeave);
-        }
-      };
-    }, []);
-    return (
-      <section aria-label="Our Affiliates" className="bg-gray-200 py-8">
-        <div ref={containerRef} className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold uppercase mb-6">Our Affiliates</h2>
-          <div className="flex space-x-2">
-          {
-        MyPartern.map((MyPartern, index) => (
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const containerWidth = containerRef.current.clientWidth;
+      const slideWidth = containerRef.current.firstChild.clientWidth;
+
+      currentSlideRef.current = (currentSlideRef.current + 1) % images.length;
+      containerRef.current.style.transform = `translateX(-${currentSlideRef.current * slideWidth}px)`;
+    }, 2000); // Adjust interval as needed
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <section aria-label="Our Affiliates" className="bg-white py-8">
+      <div className="container mx-auto px-4">
+        <h2 className="text-center text-3xl font-bold uppercase mb-6">Our Affiliates</h2>
+        <div ref={containerRef} className="flex overflow-x-hidden">
+          {images.map((image) => (
             <img
-              alt={MyPartern}
+              key={image.alt}
+              alt={image.alt}
               className="min-w-[200px]"
               height="100"
-              src={MyPartern}
-              style={{
-                aspectRatio: "200/100",
-                objectFit: "contain",
-              }}
+              src={image.src}
+              style={{ aspectRatio: '200/100', objectFit: 'cover' }}
               width="200"
             />
-            ))
-        }
-           
-          </div>
+          ))}
         </div>
-      </section>
-    )
-  }
+      </div>
+    </section>
+  );
+}     
+       
