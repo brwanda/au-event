@@ -118,19 +118,12 @@ const togglePlayPause = () => {
                         value={volume}
                       />
                     </li>
-                    <li className='options center'>
-                      <button className='skip-backward' onClick={handleSkipBackward}>
-                      <ArrowLeftIcon className="h-6 w-6" />
+                  
+                    <li className='options right'>
+                    <button className='fullscreen' onClick={handleToggleFullScreen}>
+                      {isFullScreen ? <ExpandIcon className="h-6 w-6" /> : <ExpandIcon className="h-6 w-6" />}
                       </button>
-                      <button className='play-pause' onClick={togglePlayPause}>
-                      {isPlaying ? <PauseIcon className="h-6 w-6" /> : <PlayIcon className="h-6 w-6" />}
-                      </button>
-                      <button className='skip-forward' onClick={handleSkipForward}>
-                      <ArrowRightIcon className="h-6 w-6" />
-                      </button>
-                     
                     </li>
-                   
                   </ul>
                 </div>
                 <div className='video-name'>CrossOver 2024</div>
