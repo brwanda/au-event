@@ -23,7 +23,19 @@ export default function Component() {
             </div>
           </div>
           <div className="w-full md:w-1/2 mt-8 md:mt-0">
-            <img
+          <Image
+                  alt="Crossover 2023"
+                  className="object-cover rounded-lg shadow-lg mx-auto"
+                  height="500"
+                  src="https://res.cloudinary.com/dxtjjbk95/image/upload/v1708470138/Authentic%20Events/53085570225_68fd931bb8_o_cgrsev.jpg"
+                  style={{
+                    aspectRatio: "600/500",
+                    objectFit: "cover",
+                  }}
+                  width="600"
+                />
+        {/*     <img
+            loading="lazy"
               alt="Event Stadium"
               className="object-cover rounded-lg shadow-lg mx-auto"
               src="https://res.cloudinary.com/dxtjjbk95/image/upload/v1708470138/Authentic%20Events/53085570225_68fd931bb8_o_cgrsev.jpg"
@@ -33,6 +45,7 @@ export default function Component() {
                 width: "100%",
               }}
             />
+            */}
           </div>
           </div>
       </section>
