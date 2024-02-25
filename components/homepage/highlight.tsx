@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect, createRef } from 'react';
 import './home.css';
 import { useRouter } from 'next/navigation';
-import { ArrowLeftIcon, PlayIcon, PauseIcon, ArrowsExpandIcon, ArrowsContractIcon } from '@heroicons/react/24/solid';
+import { ArrowLeftIcon, PlayIcon, PauseIcon, ArrowsIcon } from '@heroicons/react/24/solid';
 
 function VideoPlayerNow() {
   const videoRef = useRef(null);
@@ -122,7 +122,7 @@ const togglePlayPause = () => {
                       <ArrowRightIcon className="h-6 w-6" />
                       </button>
                       <button className='fullscreen' onClick={handleToggleFullScreen}>
-                      {isFullScreen ? <ArrowsContractIcon className="h-6 w-6" /> : <ArrowsExpandIcon className="h-6 w-6" />}
+                      {isFullScreen ? <ArrowsIcon className="h-6 w-6" /> : <ArrowsIcon className="h-6 w-6" />}
                       </button>
                     </li>
                     <li className='options right'>
