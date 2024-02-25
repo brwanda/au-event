@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect, createRef } from 'react';
 import './home.css';
 import { useRouter } from 'next/navigation';
 import { ArrowLeftIcon, PlayIcon, PauseIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
-import { ExpandIcon, VolumeUpIcon  } from 'lucide-react';
+import { ExpandIcon  } from 'lucide-react';
 
 function VideoPlayerNow() {
   const videoRef = useRef(null);
@@ -106,9 +106,7 @@ const togglePlayPause = () => {
                 <div className='wrappersasa'>
                   <ul className='video-controls'>
                     <li className='options left'>
-                      <button className='volume'>
-                      <VolumeUpIcon size={24} />
-                      </button>
+    
                       <input
                         type='range'
                         min='0'
