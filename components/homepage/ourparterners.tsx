@@ -35,8 +35,8 @@ export default function Component() {
       };
     
       if (isHTMLElement(container)) {
-        container.addEventListener('mouseenter', handleMouseEnter);
-        container.addEventListener('mouseleave', handleMouseLeave);
+        (container as HTMLElement).addEventListener('mouseenter', handleMouseEnter);
+        (container as HTMLElement).addEventListener('mouseleave', handleMouseLeave);
       }
     
       // Clean up event listeners and interval
