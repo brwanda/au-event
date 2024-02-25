@@ -7,46 +7,43 @@ export default function Component() {
     const containerRef = useRef(null);
 
     useEffect(() => {
-      const container = containerRef.current;
-  
-      // Function to scroll the container automatically
-      const autoScroll = () => {
-        if (container) {
-          // Type assertion to HTMLElement to access scrollLeft, scrollWidth, and clientWidth
-          (container as HTMLElement).scrollLeft += 2; // Adjust the scrolling speed as needed
-          if ((container as HTMLElement).scrollLeft >= (container as HTMLElement).scrollWidth - (container as HTMLElement).clientWidth) {
-            (container as HTMLElement).scrollLeft = 0;
+        const container = containerRef.current;
+      
+        const autoScroll = () => {
+          if (container) {
+            container.scrollLeft += 2; // Adjust the scrolling speed as needed
+      
+            // If reached the end, scroll back to the beginning
+            if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+              container.scrollLeft = 0;
+            }
           }
-        }
-      };
-  
-      let intervalId = setInterval(autoScroll, 50); // Change const to let
-
-      // Later in the cleanup function:
-      clearInterval(intervalId); // Adjust the interval as needed
-  
-      const handleMouseEnter = () => clearInterval(intervalId);
-      const handleMouseLeave = () => {
-        if (container) {
+        };
+      
+        // Start auto-scrolling
+        const intervalId = setInterval(autoScroll, 50); // Adjust the interval as needed
+      
+        // Stop auto-scrolling on mouse enter and resume scrolling on mouse leave
+        const handleMouseEnter = () => clearInterval(intervalId);
+        const handleMouseLeave = () => {
           clearInterval(intervalId);
           intervalId = setInterval(autoScroll, 50); // Resume auto-scrolling
-        }
-      };
-    
-      if (container) {
-        container.addEventListener('mouseenter', handleMouseEnter);
-        container.addEventListener('mouseleave', handleMouseLeave);
-      }
-    
-      // Clean up event listeners and interval
-      return () => {
-        clearInterval(intervalId);
+        };
+      
         if (container) {
-          container.removeEventListener('mouseenter', handleMouseEnter);
-          container.removeEventListener('mouseleave', handleMouseLeave);
+          container.addEventListener('mouseenter', handleMouseEnter);
+          container.addEventListener('mouseleave', handleMouseLeave);
         }
-      };
-    }, []);
+      
+        // Clean up event listeners and interval
+        return () => {
+          clearInterval(intervalId);
+          if (container) {
+            container.removeEventListener('mouseenter', handleMouseEnter);
+            container.removeEventListener('mouseleave', handleMouseLeave);
+          }
+        };
+      }, []);
     return (
       <section aria-label="Our Affiliates" className="bg-gray-200 py-8">
         <div ref={containerRef} className="container mx-auto px-4">
