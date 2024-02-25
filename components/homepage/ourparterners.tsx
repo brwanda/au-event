@@ -1,4 +1,5 @@
 import { MyPartern } from '@/parterners';
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 export default function Component() {
     return (
@@ -6,8 +7,11 @@ export default function Component() {
         <div className="container mx-auto px-4">
           <h2 className="text-center text-3xl font-bold uppercase mb-6">Our Affiliates</h2>
           <div className="flex space-x-2">
+          <Carousel>
+            <CarouselContent className="-ml-1">
           {
         MyPartern.map((MyPartern, index) => (
+            <CarouselItem key={index} >
             <img
               alt={MyPartern}
               className="min-w-[200px]"
@@ -19,8 +23,11 @@ export default function Component() {
               }}
               width="200"
             />
+            </CarouselItem>
             ))
         }
+        </CarouselContent>
+        </Carousel>
            
           </div>
         </div>
