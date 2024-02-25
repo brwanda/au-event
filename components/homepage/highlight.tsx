@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect, createRef } from 'react';
 import './home.css';
 import { useRouter } from 'next/navigation';
-import { ArrowLeftIcon, PlayIcon, PauseIcon, ArrowsIcon } from '@heroicons/react/24/solid';
+import { ArrowLeftIcon, PlayIcon, PauseIcon, ArrowsIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 
 function VideoPlayerNow() {
   const videoRef = useRef(null);
