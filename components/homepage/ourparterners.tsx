@@ -7,7 +7,7 @@ export default function Component() {
     const containerRef = useRef(null);
 
     useEffect(() => {
-      const container = containerRef.current ?? null;
+      const container = containerRef.current;
   
       // Function to scroll the container automatically
       const autoScroll = () => {
@@ -31,8 +31,8 @@ export default function Component() {
       };
     
       if (container) {
-        container.addEventListener('mouseenter', handleMouseEnter);
-        container.addEventListener('mouseleave', handleMouseLeave);
+        container?.addEventListener('mouseenter', handleMouseEnter);
+        container?.addEventListener('mouseleave', handleMouseLeave);
       }
     
       // Clean up event listeners and interval
