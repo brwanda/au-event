@@ -121,16 +121,12 @@ const togglePlayPause = () => {
                       <button className='skip-forward' onClick={handleSkipForward}>
                       <ArrowRightIcon className="h-6 w-6" />
                       </button>
-                      <button className='fullscreen' onClick={handleToggleFullScreen}>
-                      {isFullScreen ? <ArrowRightIcon className="h-6 w-6" /> : <ArrowRightIcon className="h-6 w-6" />}
-                      </button>
+                     
                     </li>
                     <li className='options right'>
-                      <div className='video-timer'>
-                        <span className='current-time'>{currentTime}</span>
-                        <span className='separator'> / </span>
-                        <span className='video-duration'>{duration}</span>
-                      </div>
+                    <button className='fullscreen' onClick={handleToggleFullScreen}>
+                      {isFullScreen ? <ArrowRightIcon className="h-6 w-6" /> : <ArrowRightIcon className="h-6 w-6" />}
+                      </button>
                     </li>
                   </ul>
                 </div>
