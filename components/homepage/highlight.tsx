@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect, createRef } from 'react';
 import './home.css';
 import { useRouter } from 'next/navigation';
 import { ArrowLeftIcon, PlayIcon, PauseIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
+import { ExpandIcon } from 'lucide-react';
 
 function VideoPlayerNow() {
   const videoRef = useRef(null);
@@ -91,9 +92,18 @@ const togglePlayPause = () => {
   return (
     <section className='py-3'>
       <div className='container'>
-        <div className='row'>
-          <div className='col-lg-12'>
-            <h2 className='section-title'>ThrowBack</h2>   
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-base font-semibold uppercase tracking-wide text-gray-600">Discover Gallery</h2>
+            <p className="mt-1 text-4xl font-extrabold sm:text-5xl sm:tracking-tight lg:text-6xl">Latest Events</p>
+            <div className="mt-5 max-w-md mx-auto">
+              <div className="text-center">
+                <span className="inline-block text-gray-600 slok px-4 py-1 rounded-full text-sm font-semibold tracking-wide">
+                  ALL
+                </span>
+              </div>
+            </div>
+          </div>
             <center>
               <div className='containersas show-controls'>
                 <div className='wrappersasa'>
@@ -125,7 +135,7 @@ const togglePlayPause = () => {
                     </li>
                     <li className='options right'>
                     <button className='fullscreen' onClick={handleToggleFullScreen}>
-                      {isFullScreen ? <ArrowRightIcon className="h-6 w-6" /> : <ArrowRightIcon className="h-6 w-6" />}
+                      {isFullScreen ? <ExpandIcon className="h-6 w-6" /> : <ExpandIcon className="h-6 w-6" />}
                       </button>
                     </li>
                   </ul>
@@ -136,7 +146,7 @@ const togglePlayPause = () => {
             </center>
           </div>
         </div>
-      </div>
+
     </section>
   );
 }
