@@ -33,6 +33,7 @@ export default function Component() {
         MyPartern.map((MyPartern, index) => (
                  <CarouselItem key={index} className="pl-1  basis-1/2 md:basis-1/4 lg:basis-1/5 flex flex-col overflow-hidden">
                      <img
+                     loading="lazy"
               alt={MyPartern}
               className="min-w-[150px]"
               height="100"
