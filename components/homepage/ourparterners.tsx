@@ -12,9 +12,10 @@ export default function Component() {
       // Function to scroll the container automatically
       const autoScroll = () => {
         if (container) {
-          container.scrollLeft += 2; // Adjust the scrolling speed as needed
-          if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-            container.scrollLeft = 0;
+          // Type assertion to HTMLElement to access scrollLeft, scrollWidth, and clientWidth
+          (container as HTMLElement).scrollLeft += 2; // Adjust the scrolling speed as needed
+          if ((container as HTMLElement).scrollLeft >= (container as HTMLElement).scrollWidth - (container as HTMLElement).clientWidth) {
+            (container as HTMLElement).scrollLeft = 0;
           }
         }
       };
