@@ -25,16 +25,20 @@ export default function Component() {
       // Later in the cleanup function:
       clearInterval(intervalId); // Adjust the interval as needed
   
-      // Stop scrolling on mouse enter and resume scrolling on mouse leave
       const handleMouseEnter = () => clearInterval(intervalId);
-      const handleMouseLeave = () => intervalId = setInterval(autoScroll, 50);
-  
+      const handleMouseLeave = () => {
+        if (container) {
+          clearInterval(intervalId);
+          intervalId = setInterval(autoScroll, 50); // Resume auto-scrolling
+        }
+      };
+    
       if (container) {
         container.addEventListener('mouseenter', handleMouseEnter);
         container.addEventListener('mouseleave', handleMouseLeave);
       }
-  
-      // Clean up event listeners
+    
+      // Clean up event listeners and interval
       return () => {
         clearInterval(intervalId);
         if (container) {
@@ -43,7 +47,6 @@ export default function Component() {
         }
       };
     }, []);
-  
     return (
       <section aria-label="Our Affiliates" className="bg-gray-200 py-8">
         <div ref={containerRef} className="container mx-auto px-4">
