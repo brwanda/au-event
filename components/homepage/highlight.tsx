@@ -13,26 +13,26 @@ function VideoPlayerNow() {
   const router = useRouter();
 
   useEffect(() => {
-    const video = videoRef.current;
-  
-    const updateVideoTime = () => {
-      if (video) setCurrentTime(video.currentTime);
+    const video = videoRef.current as HTMLVideoElement | null;
+
+  const updateVideoTime = () => {
+    if (video) setCurrentTime(video.currentTime);
+  };
+
+  const updateVideoDuration = () => {
+    if (video) setDuration(video.duration);
+  };
+
+  if (video) {
+    video.addEventListener('timeupdate', updateVideoTime);
+    video.addEventListener('loadedmetadata', updateVideoDuration);
+
+    return () => {
+      video.removeEventListener('timeupdate', updateVideoTime);
+      video.removeEventListener('loadedmetadata', updateVideoDuration);
     };
-  
-    const updateVideoDuration = () => {
-      if (video) setDuration(video.duration);
-    };
-  
-    if (video) {
-      video.addEventListener('timeupdate', updateVideoTime);
-      video.addEventListener('loadedmetadata', updateVideoDuration);
-  
-      return () => {
-        video.removeEventListener('timeupdate', updateVideoTime);
-        video.removeEventListener('loadedmetadata', updateVideoDuration);
-      };
-    }
-  }, []);
+  }
+}, []);
   
 
   const togglePlayPause = () => {
