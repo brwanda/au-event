@@ -36,13 +36,17 @@ function VideoPlayerNow() {
   
 
 const togglePlayPause = () => {
-    const video = videoRef.current;
-  if(video){
-    setIsPlaying(!isPlaying);
-    video.paused ? video.play() : video.pause();
-  }
+    const video = videoRef.current as HTMLVideoElement | null;
+  
+    if (video) {
+      setIsPlaying(!isPlaying);
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
   };
-
   const handleSkipBackward = () => {
     const video = videoRef.current;
     video.currentTime -= 10; // Skip backward 10 seconds
