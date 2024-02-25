@@ -5,7 +5,7 @@ export default function Component() {
       <section aria-label="Our Affiliates" className="bg-gray-200 py-8">
         <div className="container mx-auto px-4">
           <h2 className="text-center text-3xl font-bold uppercase mb-6">Our Affiliates</h2>
-          <div className="flex hide-scrollbar overflow-x-auto  space-x-2">
+          <div className="flex space-x-2">
           {
         MyPartern.map((MyPartern, index) => (
             <img
