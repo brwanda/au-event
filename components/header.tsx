@@ -22,7 +22,7 @@ export default function Home() {
 <div className="container-fluid mx-auto px-5 py-4 ">
    <Popover className="headernow container mx-auto flex items-center  px-8 py-2 h-24">
    <Image
-      src="https://res.cloudinary.com/dxtjjbk95/image/upload/v1708472818/Authentic%20Events/FULL_LG_kmurtg.png"
+      src="https://res.cloudinary.com/dxtjjbk95/image/upload/v1708852019/Authentic%20Events/AE_Final_xug5md.png"
       width={150}
       height={300}
       alt="Picture of the author"

@@ -10,7 +10,7 @@ function footer() {
         <div>
           <div className="flex items-center space-x-4 mb-4">
        <Image
-      src="https://res.cloudinary.com/dxtjjbk95/image/upload/v1708472818/Authentic%20Events/FULL_LG_kmurtg.png"
+      src="https://res.cloudinary.com/dxtjjbk95/image/upload/v1708852019/Authentic%20Events/AE_Final_xug5md.png"
       width={150}
       height={300}
       alt="Picture of the author"
