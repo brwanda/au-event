@@ -103,41 +103,8 @@ const togglePlayPause = () => {
           </div>
             <center>
               <div className='containersas show-controls'>
-                <div className='wrappersasa'>
-                  <ul className='video-controls'>
-                    <li className='options left'>
-                      <button className='volume'>
-                        <i className='fa-solid fa-volume-high'></i>
-                      </button>
-                      <input
-                        type='range'
-                        min='0'
-                        max='1'
-                        step='any'
-                        onChange={handleVolumeChange}
-                        value={volume}
-                      />
-                    </li>
-                    <li className='options center'>
-                      <button className='skip-backward' onClick={handleSkipBackward}>
-                      <ArrowLeftIcon className="h-6 w-6" />
-                      </button>
-                      <button className='play-pause' onClick={togglePlayPause}>
-                      {isPlaying ? <PauseIcon className="h-6 w-6" /> : <PlayIcon className="h-6 w-6" />}
-                      </button>
-                      <button className='skip-forward' onClick={handleSkipForward}>
-                      <ArrowRightIcon className="h-6 w-6" />
-                      </button>
-                     
-                    </li>
-                    <li className='options right'>
-                    <button className='fullscreen' onClick={handleToggleFullScreen}>
-                      {isFullScreen ? <ExpandIcon className="h-6 w-6" /> : <ExpandIcon className="h-6 w-6" />}
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                <div className='video-name'>CrossOver 2023</div>
+              
+                <div className='video-name'>CrossOver 2024</div>
                 <video ref={videoRef} src="https://res.cloudinary.com/dxtjjbk95/video/upload/v1708851646/Authentic%20Events/CrossOver2023_xsledz.mp4"></video>
               </div>
             </center>
