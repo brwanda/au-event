@@ -1,3 +1,5 @@
+"use client";
+
 import { MyPartern } from '@/parterners';
 import React, { useRef } from 'react';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
@@ -8,7 +10,7 @@ export default function Component() {
     const plugin = React.useRef(
         Autoplay({ delay: 1500, stopOnInteraction: true })
       );
-      
+
     return (
         <div className="bg-white py-12">
         
