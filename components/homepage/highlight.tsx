@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect, createRef } from 'react';
 import './home.css';
 import { useRouter } from 'next/navigation';
+import { ArrowLeftIcon, PlayIcon, PauseIcon, ZoomOutIcon, ZoomInIcon } from '@heroicons/react/24/solid';
 
 function VideoPlayerNow() {
   const videoRef = useRef(null);
@@ -112,16 +113,16 @@ const togglePlayPause = () => {
                     </li>
                     <li className='options center'>
                       <button className='skip-backward' onClick={handleSkipBackward}>
-                        <i className='fas fa-backward'></i>
+                      <ArrowLeftIcon className="h-6 w-6" />
                       </button>
                       <button className='play-pause' onClick={togglePlayPause}>
-                        <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+                      {isPlaying ? <PauseIcon className="h-6 w-6" /> : <PlayIcon className="h-6 w-6" />}
                       </button>
                       <button className='skip-forward' onClick={handleSkipForward}>
-                        <i className='fas fa-forward'></i>
+                      <ArrowRightIcon className="h-6 w-6" />
                       </button>
                       <button className='fullscreen' onClick={handleToggleFullScreen}>
-                        <i className={`fa-solid ${isFullScreen ? 'fa-compress' : 'fa-expand'}`}></i>
+                      {isFullScreen ? <ZoomOutIcon className="h-6 w-6" /> : <ZoomInIcon className="h-6 w-6" />}
                       </button>
                     </li>
                     <li className='options right'>
