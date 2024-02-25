@@ -25,7 +25,7 @@ export default function Component() {
         MyPartern.map((MyPartern, index) => (
            
             <CarouselItem key={index} >
-                 <div className="group relative">
+           <div className="">
             <img
               alt={MyPartern}
               className="min-w-[200px]"
