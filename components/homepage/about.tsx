@@ -23,6 +23,7 @@ export default function Component() {
             </div>
           </div>
           <div className="w-full md:w-1/2 mt-8 md:mt-0">
+            
           <Image
                   alt="Crossover 2023"
                   className="object-cover rounded-lg shadow-lg mx-auto"
