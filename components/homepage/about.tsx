@@ -1,5 +1,6 @@
 import { Button } from "../ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Component() {
   return (
@@ -23,7 +24,7 @@ export default function Component() {
             </div>
           </div>
           <div className="w-full md:w-1/2 mt-8 md:mt-0">
-            
+
           <Image
                   alt="Crossover 2023"
                   className="object-cover rounded-lg shadow-lg mx-auto"
