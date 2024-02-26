@@ -4,6 +4,7 @@ import { MyPartern } from '@/parterners';
 import React, { useRef } from 'react';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 
 export default function Component() {
 
@@ -32,8 +33,8 @@ export default function Component() {
              {
         MyPartern.map((MyPartern, index) => (
                  <CarouselItem key={index} className="pl-1  basis-1/2 md:basis-1/4 lg:basis-1/5 flex flex-col overflow-hidden">
-                     <img
-                     loading="lazy"
+                     <Image
+                  
               alt={MyPartern}
               className="min-w-[150px]"
               height="100"
